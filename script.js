@@ -375,3 +375,57 @@ fadeStyle.textContent = `
   to { opacity: 0; transform: scale(0.6); }
 }`;
 document.head.appendChild(fadeStyle);
+
+/* ==================================================
+   LEVEL 2 — FLOATING PREVIEW BOX (Fixed version)
+================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".hover-preview").forEach(el => {
+    const title = el.dataset.title || "";
+    const img = el.dataset.img || "";
+    const desc = el.dataset.desc || "";
+
+    if (title || img || desc) {
+      const box = document.createElement("div");
+      box.classList.add("preview-box");
+      box.innerHTML = `
+        ${img ? `<img src="${img}" alt="${title} preview">` : ""}
+        ${title ? `<strong>${title}</strong>` : ""}
+        ${desc ? `<p>${desc}</p>` : ""}
+      `;
+      document.body.appendChild(box);
+
+      el.addEventListener("mouseenter", () => {
+        box.style.opacity = "1";
+        box.style.transform = "scale(1)";
+      });
+
+      el.addEventListener("mousemove", e => {
+        const offsetX = 20;
+        const offsetY = 20;
+
+        // clientX/clientY → relative to the viewport (not scroll)
+        let x = e.clientX + offsetX;
+        let y = e.clientY + offsetY;
+
+        const boxWidth = 260;
+        const boxHeight = 200;
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // Keep the box within the viewport bounds
+        if (x + boxWidth > screenWidth - 16) x = screenWidth - boxWidth - 16;
+        if (y + boxHeight > screenHeight - 16) y = screenHeight - boxHeight - 16;
+
+        // Use position: fixed coordinates
+        box.style.left = `${x}px`;
+        box.style.top = `${y}px`;
+      });
+
+      el.addEventListener("mouseleave", () => {
+        box.style.opacity = "0";
+        box.style.transform = "scale(0.95)";
+      });
+    }
+  });
+});
