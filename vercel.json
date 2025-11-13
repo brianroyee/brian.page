@@ -15,5 +15,18 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "functions": {
+    "app.py": {
+      "memory": 1024
+    }
+  },
+  "build": {
+    "env": {
+      "FLASK_APP": "app.py"
+    }
+  },
+  "commands": {
+    "build": "pip install -r requirements.txt && flask init-db"
+  }
 }
