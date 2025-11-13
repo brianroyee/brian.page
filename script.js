@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardInteractions();
     initLucideIcons();
     initHoverPreviews();
+    initPhotoCarousel();
 });
 
 // Mobile menu toggle
@@ -243,3 +244,24 @@ window.addEventListener('scroll', debounce(() => {
         nav.style.backdropFilter = 'blur(8px)';
     }
 }, 10));
+
+// Photo Carousel functionality
+function initPhotoCarousel() {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    
+    const images = document.querySelectorAll('.carousel-image');
+    if (images.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    function showNextImage() {
+        const nextIndex = (currentIndex + 1) % images.length;
+        
+        images[currentIndex].classList.remove('active');
+        images[nextIndex].classList.add('active');
+        
+        currentIndex = nextIndex;
+    }
+    setInterval(showNextImage, 3500);
+}
