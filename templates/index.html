@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
 </head>
 <body>
 
@@ -46,7 +47,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#work" class="nav-link">Hands-Ons</a>
-                <a href="#creatives-cta" class="nav-link">Creatives</a>
+                <a href="{{ url_for('creatives') }}" class="nav-link">Creatives</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
@@ -55,7 +56,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="media/The eyes chico! (3).gif" alt="Background" class="hero-gif">
+            <!-- Image path is now also handled by url_for for consistency -->
+            <img src="{{ url_for('static', filename='media/The eyes chico! (3).gif') }}" alt="Background" class="hero-gif">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">Brian Roy Mathew</h1>
@@ -117,10 +119,10 @@
                 <div class="about-carousel">
                     <div class="carousel-container">
                         <div class="carousel-track">
-                            <img src="media/photo1.jpg" alt="Photo 1" class="carousel-image active" loading="lazy">
-                            <img src="media/photo2.jpg" alt="Photo 2" class="carousel-image" loading="lazy">
-                            <img src="media/photo3.jpg" alt="Photo 3" class="carousel-image" loading="lazy">
-                            <img src="media/photo4.png" alt="Photo 4" class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Photo 1" class="carousel-image active" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Photo 2" class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Photo 3" class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Photo 4" class="carousel-image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -206,7 +208,7 @@
                 <!-- Project 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="media/datamate.png" alt="Finance Management Softwares" loading="lazy">
+                        <img src="{{ url_for('static', filename='media/datamate.png') }}" alt="Finance Management Softwares" loading="lazy">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Finance Management Softwares</h3>
@@ -222,7 +224,7 @@
                 <!-- Project 2 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="media/ieeesbasiet.png" alt="Malayattor Library Webpage" loading="lazy">
+                        <img src="{{ url_for('static', filename='media/ieeesbasiet.png') }}" alt="Malayattor Library Webpage" loading="lazy">
                     </div> 
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Cultural Library Webpage - Malayattor Library</h3>
@@ -245,7 +247,7 @@
             <p class="cta-description">
                 Beyond design, I explore ideas and stories through writing. Discover my collection of blogs, articles, and personal thoughts.
             </p>
-            <a href="creative.html" class="cta-button">Explore My Writings</a>
+            <a href="{{ url_for('creatives') }}" class="cta-button">Explore My Writings</a>
         </div>
     </section>
 
@@ -279,11 +281,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">Feel free to use this template for your own portfolio!</p>
+            <p class="footer-text">Template venel just Dm Cheyy Shuttumaniyee!</p>
         </div>
     </footer>
 
     <!-- Main Script -->
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
