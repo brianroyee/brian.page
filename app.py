@@ -26,7 +26,6 @@ def setup_database_tables(secret_key):
             return f"ERROR: An error occurred: {e}", 500
     else:
         return "ERROR: Invalid secret key.", 403
-# --- END OF SECRET ROUTE ---
 
 
 @app.route('/api/creatives')
