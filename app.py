@@ -1,36 +1,34 @@
-# app.py
-
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from config import Config
 from models import db, CreativeWork, Visitor
 from admin import init_admin
 
-# --- 1. FLASK APPLICATION INITIALIZATION ---
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
-
-# --- 2. ADMIN PANEL INITIALIZATION ---
 init_admin(app)
 
-# --- 3. JUST-IN-TIME DATABASE CREATION (THE SOLUTION) ---
-# This is a global flag to ensure create_all() is only called once per instance.
-_db_initialized = False
-
-@app.before_request
-def before_request_func():
+# --- SECRET DATABASE INITIALIZATION ROUTE ---
+# This special URL will be used only ONCE to set up the production database.
+@app.route('/_internal/setup-database/<secret_key>')
+def setup_database_tables(secret_key):
     """
-    This function runs before every request.
-    It ensures that the database tables are created if they don't exist.
-    This is crucial for serverless environments like Vercel where the filesystem is ephemeral.
+    A secret, one-time-use endpoint to create database tables in production.
+    This bypasses the need to run any scripts on a local machine.
     """
-    global _db_initialized
-    if not _db_initialized:
-        with app.app_context():
-            db.create_all()
-        _db_initialized = True
+    # We protect this route with the app's secret key to prevent unauthorized access.
+    if secret_key == app.config['SECRET_KEY']:
+        try:
+            with app.app_context():
+                db.create_all()
+            return "SUCCESS: Production database tables were created (or already existed)."
+        except Exception as e:
+            return f"ERROR: An error occurred: {e}", 500
+    else:
+        return "ERROR: Invalid secret key.", 403
+# --- END OF SECRET ROUTE ---
 
-# --- 4. PUBLIC API ENDPOINTS ---
+
 @app.route('/api/creatives')
 def get_creatives():
     works = CreativeWork.query.filter_by(is_published=True).order_by(CreativeWork.date_created.desc()).all()
@@ -39,7 +37,6 @@ def get_creatives():
 @app.route('/api/track-visit', methods=['POST'])
 def track_visit():
     try:
-        from flask import request
         new_visitor = Visitor(ip_address=request.remote_addr, user_agent=request.headers.get('User-Agent'))
         db.session.add(new_visitor)
         db.session.commit()
@@ -48,7 +45,6 @@ def track_visit():
         app.logger.error(f"Error tracking visit: {e}")
         return jsonify({'status': 'error'}), 500
 
-# --- 5. FRONTEND PAGE ROUTES ---
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -57,9 +53,5 @@ def index():
 def creatives():
     return render_template('creative.html')
 
-with app.app_context():
-    db.create_all()
-
-# --- 6. MAIN EXECUTION POINT ---
 if __name__ == '__main__':
     app.run(debug=True)
