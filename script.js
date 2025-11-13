@@ -1,5 +1,41 @@
 // Portfolio Website JavaScript
 
+// Preloader functionality - runs immediately
+(function() {
+    const preloader = document.querySelector('.preloader');
+    
+    if (preloader) {
+        // Minimum display time for preloader (in milliseconds)
+        const minDisplayTime = 2000; // 2 seconds
+        const startTime = Date.now();
+        
+        function hidePreloader() {
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+            
+            setTimeout(function() {
+                preloader.classList.add('fade-out');
+                
+                // Remove preloader from DOM after fade out
+                setTimeout(function() {
+                    if (preloader.parentNode) {
+                        preloader.remove();
+                    }
+                }, 500);
+            }, remainingTime);
+        }
+        
+        // Try multiple methods to ensure preloader hides
+        if (document.readyState === 'complete') {
+            hidePreloader();
+        } else {
+            window.addEventListener('load', hidePreloader);
+            // Fallback: hide after max 4 seconds regardless
+            setTimeout(hidePreloader, 4000);
+        }
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all interactions
     initMobileMenu();
