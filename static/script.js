@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHoverPreviews();
     initPhotoCarousel();
     handleNavScroll();
+    initCursorBlob();
 
     // API Interaction Initializers
     loadCreativeWorks(); // Fetches data for the /creatives page.
@@ -327,4 +328,24 @@ function trackPageVisit() {
         .catch(error => {
             console.error('Error tracking page visit:', error);
         });
+}
+
+/**
+ * Initializes a "lava lamp" blob effect that follows the user's cursor.
+ */
+function initCursorBlob() {
+    const blob = document.querySelector('.cursor-blob');
+    
+    // Only run if the blob element exists.
+    if (!blob) return;
+
+    // Listen for the 'mousemove' event on the entire window.
+    window.addEventListener('mousemove', function(event) {
+        const { clientX, clientY } = event;
+
+        // Move the blob to the cursor's position.
+        // We use transform for smoother, hardware-accelerated animation.
+        // The -50% offsets ensure the center of the blob aligns with the cursor.
+        blob.style.transform = `translate(${clientX - (blob.offsetWidth / 2)}px, ${clientY - (blob.offsetHeight / 2)}px)`;
+    });
 }

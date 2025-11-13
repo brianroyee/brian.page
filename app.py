@@ -8,6 +8,25 @@ app.config.from_object(Config)
 db.init_app(app)
 init_admin(app)
 
+# --- SECRET DATABASE INITIALIZATION ROUTE ---
+# This special URL will be used only ONCE to set up the production database.
+@app.route('/_internal/setup-database/<secret_key>')
+def setup_database_tables(secret_key):
+    """
+    A secret, one-time-use endpoint to create database tables in production.
+    This bypasses the need to run any scripts on a local machine.
+    """
+    # We protect this route with the app's secret key to prevent unauthorized access.
+    if secret_key == app.config['SECRET_KEY']:
+        try:
+            with app.app_context():
+                db.create_all()
+            return "SUCCESS: Production database tables were created (or already existed)."
+        except Exception as e:
+            return f"ERROR: An error occurred: {e}", 500
+    else:
+        return "ERROR: Invalid secret key.", 403
+
 
 @app.route('/api/creatives')
 def get_creatives():

@@ -16,6 +16,7 @@
 13. CREATIVES PAGE STYLES
 14. FOOTER
 15. RESPONSIVE DESIGN
+16. DIGITAL LAVA LAMP CURSOR
 ================================ */
 
 /* ================================
@@ -893,6 +894,43 @@ body {
 }
 
 /* ================================
+   16. DIGITAL LAVA LAMP CURSOR
+================================ */
+
+.cursor-blob {
+    /* Positioning */
+    position: fixed; /* Stays in the same place on the screen when scrolling */
+    top: 0;
+    left: 0;
+    z-index: -1; /* CRITICAL: Places the blob BEHIND all other content */
+
+    /* Shape and Size */
+    width: 300px;  /* Adjust size as needed */
+    height: 300px;
+    border-radius: 50%; /* Makes it a perfect circle */
+
+    /* Color and Effect */
+    /* Use a soft blue that matches your site's accent color */
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, rgba(59, 130, 246, 0) 60%);
+    
+    /* The magic blur effect */
+    filter: blur(40px); /* Adjust blur amount for a softer/harder look */
+    
+    /* Smooth Animation */
+    /* This makes the blob glide to the cursor instead of jumping instantly */
+    transition: transform 0.2s ease-out;
+
+    /* Hide on mobile devices where there is no cursor */
+    pointer-events: none; /* Allows clicks to pass through the blob */
+}
+
+/* Optional: Hide the blob on smaller screens for better performance and usability */
+@media (max-width: 768px) {
+    .cursor-blob {
+        display: none;
+    }
+}
+/* ================================
    15. RESPONSIVE DESIGN
 ================================ */
 @media (max-width: 1024px) {
@@ -1075,5 +1113,43 @@ body {
     .contact-icon svg {
         width: 24px;
         height: 24px;
+    }
+}
+
+/* ================================
+   16. DIGITAL LAVA LAMP CURSOR
+================================ */
+
+.cursor-blob {
+    /* Positioning */
+    position: fixed; /* Stays in the same place on the screen when scrolling */
+    top: 0;
+    left: 0;
+    z-index: -1; /* CRITICAL: Places the blob BEHIND all other content */
+
+    /* Shape and Size */
+    width: 300px;  /* Adjust size as needed */
+    height: 300px;
+    border-radius: 50%; /* Makes it a perfect circle */
+
+    /* Color and Effect */
+    /* Use a soft blue that matches your site's accent color */
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, rgba(59, 130, 246, 0) 60%);
+    
+    /* The magic blur effect */
+    filter: blur(40px); /* Adjust blur amount for a softer/harder look */
+    
+    /* Smooth Animation */
+    /* This makes the blob glide to the cursor instead of jumping instantly */
+    transition: transform 0.2s ease-out;
+
+    /* Hide on mobile devices where there is no cursor */
+    pointer-events: none; /* Allows clicks to pass through the blob */
+}
+
+/* Optional: Hide the blob on smaller screens for better performance and usability */
+@media (max-width: 768px) {
+    .cursor-blob {
+        display: none;
     }
 }
