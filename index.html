@@ -18,6 +18,11 @@
             <div class="nav-brand">
                 Brian Roy Mathew
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <div class="nav-links">
                 <a href="#work" class="nav-link">Hands-Ons</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -30,13 +35,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg">
-            <!-- <img autoplay loop muted playsinline class="hero-video"> -->
-            <!--   <source src="media\1231bb1c-6aea-478a-af55-.mp4" type="video/mp4"> -->
-                <!-- If you’re using an actual GIF, replace the <video> tag with an <img>: -->
-                <img src="media/The eyes chico! (3).gif" alt="Background" class="hero-gif">
-            </video>
+            <img src="media/The eyes chico! (3).gif" alt="Background" class="hero-gif">
         </div>
-
 
         <div class="hero-content">
             <h1 class="hero-title">Brian Roy Mathew</h1>
@@ -51,7 +51,7 @@
             <div class="portfolio-grid">
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">Accounts Package</div>
+                        <img src="media/datamate.png" alt="Finance Management Software">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Finance Management Softwares</h3>
@@ -67,11 +67,11 @@
 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <div class="placeholder-image">Cultural Library Catalog</div>
+                        <img src="media/ieeesbasiet.png" alt="library">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Cultural Library Webpage - Malayattor Library</h3>
-                        <p class="portfolio-description">Contributed in designing workflows and reworking on critical features</p>
+                        <p class="portfolio-description">Contributed in designing workflows and refactored features. Project by IEEE SB ASIET - Computer Society</p>
                         <div class="portfolio-tags">
                             <span class="tag">UI Design</span>
                             <span class="tag">Dashboard Design</span>
@@ -79,7 +79,9 @@
                         </div>
                     </div>
                 </div>
-        </section>
+            </div>
+        </div>
+    </section>
 
     <!-- Education & Experience Section -->
     <section id="experience" class="experience-section">
@@ -98,7 +100,7 @@
                             <p class="timeline-description">
                                 Currently pursuing a B.Tech degree with a focus on integrating technology and design.
                             </p>
-                                <div class="timeline-tags">
+                            <div class="timeline-tags">
                                 <span class="tag hover-preview"
                                         data-title="Electrical Designs"
                                         data-desc="Designing and analyzing real-world electrical schematics and PCB layouts.">
@@ -122,7 +124,7 @@
                                         data-desc="Designing feedback and automation systems for robotics and industrial control.">
                                     Control Systems
                                 </span>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,32 +144,33 @@
                                 Drove user-centered redesign initiatives for increased user satisfaction.
                             </p>
                             <div class="timeline-tags">
-                            <span class="tag hover-preview"
-                                    data-title="Enterprise UX"
-                                    data-desc="Designing scalable, efficient experiences for complex enterprise systems.">
-                                Enterprise UX
-                            </span>
+                                <span class="tag hover-preview"
+                                        data-title="Enterprise UX"
+                                        data-desc="Designing scalable, efficient experiences for complex enterprise systems.">
+                                    Enterprise UX
+                                </span>
 
-                            <span class="tag hover-preview"
-                                    data-title="Design Systems"
-                                    data-desc="Creating consistent, reusable design libraries for large-scale teams.">
-                                Design Systems
-                            </span>
+                                <span class="tag hover-preview"
+                                        data-title="Design Systems"
+                                        data-desc="Creating consistent, reusable design libraries for large-scale teams.">
+                                    Design Systems
+                                </span>
 
-                            <span class="tag hover-preview"
-                                    data-title="Team Leadership"
-                                    data-desc="Guiding designers and engineers to align creativity with user goals.">
-                                Team Leadership
-                            </span>
+                                <span class="tag hover-preview"
+                                        data-title="Team Leadership"
+                                        data-desc="Guiding designers and engineers to align creativity with user goals.">
+                                    Team Leadership
+                                </span>
 
-                            <span class="tag hover-preview"
-                                    data-title="Stakeholder Management"
-                                    data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">
-                                Stakeholder Management
-                            </span>
+                                <span class="tag hover-preview"
+                                        data-title="Stakeholder Management"
+                                        data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">
+                                    Stakeholder Management
+                                </span>
                             </div>
+                        </div>
                     </div>
-                    </div>                
+                    
                     <div class="timeline-item">
                         <div class="timeline-date">2025 - 2025</div>
                         <div class="timeline-content">
@@ -176,7 +179,7 @@
                             <p class="timeline-description">
                                 Gained experience in IT operations and support within a banking environment. 
                             </p>
-                                <div class="timeline-tags">
+                            <div class="timeline-tags">
                                 <span class="tag hover-preview"
                                         data-title="IT Operations"
                                         data-desc="Managing and optimizing IT infrastructure, deployment, and maintenance processes.">
@@ -200,11 +203,9 @@
                                         data-desc="Structuring scalable systems and architectures to meet performance and reliability goals.">
                                     System Design
                                 </span>
-                                </div>
-
+                            </div>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
@@ -265,43 +266,42 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">Let’s Connect</h2>
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
 
-        <p class="contact-description">
-        Find me online — I’m always open to collaborations or conversations that spark creativity!
-        </p>
+            <p class="contact-description">
+                Find me online — I'm always open to collaborations or conversations that spark creativity!
+            </p>
 
-        <div class="contact-icons">
-        <a href="mailto:briancodee@gmail.com" class="contact-icon" title="Email">
-            <i data-lucide="mail"></i>
-        </a>
+            <div class="contact-icons">
+                <a href="mailto:briancodee@gmail.com" class="contact-icon" title="Email">
+                    <i data-lucide="mail"></i>
+                </a>
 
-        <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" class="contact-icon" title="WhatsApp">
-            <i data-lucide="message-circle"></i>
-        </a>
+                <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" class="contact-icon" title="WhatsApp">
+                    <i data-lucide="message-circle"></i>
+                </a>
 
-        <a href="https://github.com/brianroymathew" target="_blank" class="contact-icon" title="GitHub">
-            <i data-lucide="github"></i>
-        </a>
+                <a href="https://github.com/brianroymathew" target="_blank" class="contact-icon" title="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
 
-        <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" class="contact-icon" title="LinkedIn">
-            <i data-lucide="linkedin"></i>
-        </a>
+                <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" class="contact-icon" title="LinkedIn">
+                    <i data-lucide="linkedin"></i>
+                </a>
 
-        <!-- Placeholder (no href) will auto-fade -->
-        <a href="https://www.kinder.com/in/en/kinder-joy" class="contact-icon" title="egg">
-            <i data-lucide="aperture"></i>
-        </a>
+                <a href="https://www.kinder.com/in/en/kinder-joy" class="contact-icon" title="Egg">
+                    <i data-lucide="egg"></i>
+                </a>
+            </div>
         </div>
-    </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-    <div class="container">
-        <p class="footer-text">Portfolio template venel DM cheyy Shuttumani!</p>
-    </div>
+        <div class="container">
+            <p class="footer-text">Portfolio template venel DM cheyy Shuttumani!</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
