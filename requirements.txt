@@ -1,5 +1,6 @@
-Flask
-Flask-SQLAlchemy
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.5
 Flask-Admin
 python-dotenv
+psycopg2-binary==2.9.7
 gunicorn

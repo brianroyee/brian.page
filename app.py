@@ -57,6 +57,9 @@ def index():
 def creatives():
     return render_template('creative.html')
 
+with app.app_context():
+    db.create_all()
+
 # --- 6. MAIN EXECUTION POINT ---
 if __name__ == '__main__':
     app.run(debug=True)
