@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brian Roy Mathew - UX Designer</title>
     <meta name="description" content="Brian Roy Mathew - User Experience Designer specializing in clean, intuitive design solutions">
+    
+    <!-- External Libraries -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">Brian Roy Mathew</div>
-            <div class="preloader-sublogo">Desktop View Recommened</div>
+            <div class="preloader-sublogo">Desktop View Recommended</div>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>
@@ -36,9 +43,10 @@
                 <span class="hamburger-line"></span>
             </button>
             <div class="nav-links">
-                <a href="#work" class="nav-link">Hands-Ons</a>
-                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#work" class="nav-link">Hands-Ons</a>
+                <a href="#creatives-cta" class="nav-link">Creatives</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
@@ -49,7 +57,6 @@
         <div class="hero-bg">
             <img src="media/The eyes chico! (3).gif" alt="Background" class="hero-gif">
         </div>
-
         <div class="hero-content">
             <h1 class="hero-title">Brian Roy Mathew</h1>
             <p class="hero-subtitle">UX Designer | Product Designer</p>
@@ -110,11 +117,10 @@
                 <div class="about-carousel">
                     <div class="carousel-container">
                         <div class="carousel-track">
-                            <img src="media/photo1.jpg" alt="Photo 1" class="carousel-image active">
-                            <img src="media/photo2.jpg" alt="Photo 2" class="carousel-image">
-                            <img src="media/photo3.jpg" alt="Photo 3" class="carousel-image">
-                            <img src="media/photo4.png" alt="Photo 4" class="carousel-image">
-                            <!-- Add more images as needed -->
+                            <img src="media/photo1.jpg" alt="Photo 1" class="carousel-image active" loading="lazy">
+                            <img src="media/photo2.jpg" alt="Photo 2" class="carousel-image" loading="lazy">
+                            <img src="media/photo3.jpg" alt="Photo 3" class="carousel-image" loading="lazy">
+                            <img src="media/photo4.png" alt="Photo 4" class="carousel-image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -122,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Education & Experience Section -->
+    <!-- Experience Section -->
     <section id="experience" class="experience-section">
         <div class="container">
             <h2 class="section-title">Experience</h2>
@@ -140,29 +146,10 @@
                                 Currently pursuing a B.Tech degree with a focus on integrating technology and design.
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview"
-                                        data-title="Electrical Designs"
-                                        data-desc="Designing and analyzing real-world electrical schematics and PCB layouts.">
-                                    Electrical Designs
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Signal Processing"
-                                        data-desc="Filtering, transforming, and interpreting analog/digital signals for communication and sensors.">
-                                    Signal Processing
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Programming"
-                                        data-desc="Building embedded and software systems using C, Python, and hardware interfacing.">
-                                    Programming
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Control Systems"
-                                        data-desc="Designing feedback and automation systems for robotics and industrial control.">
-                                    Control Systems
-                                </span>
+                                <span class="tag hover-preview" data-title="Electrical Designs" data-desc="Designing and analyzing real-world electrical schematics and PCB layouts.">Electrical Designs</span>
+                                <span class="tag hover-preview" data-title="Signal Processing" data-desc="Filtering, transforming, and interpreting analog/digital signals for communication and sensors.">Signal Processing</span>
+                                <span class="tag hover-preview" data-title="Programming" data-desc="Building embedded and software systems using C, Python, and hardware interfacing.">Programming</span>
+                                <span class="tag hover-preview" data-title="Control Systems" data-desc="Designing feedback and automation systems for robotics and industrial control.">Control Systems</span>
                             </div>
                         </div>
                     </div>
@@ -179,33 +166,13 @@
                             <h4 class="timeline-title">UX Designer</h4>
                             <p class="timeline-subtitle">Datamate InfoSolutions Ltd.</p>
                             <p class="timeline-description">
-                                UX designer for enterprise SaaS products, managing design systems. 
-                                Drove user-centered redesign initiatives for increased user satisfaction.
+                                UX designer for enterprise SaaS products, managing design systems. Drove user-centered redesign initiatives for increased user satisfaction.
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview"
-                                        data-title="Enterprise UX"
-                                        data-desc="Designing scalable, efficient experiences for complex enterprise systems.">
-                                    Enterprise UX
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Design Systems"
-                                        data-desc="Creating consistent, reusable design libraries for large-scale teams.">
-                                    Design Systems
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Team Leadership"
-                                        data-desc="Guiding designers and engineers to align creativity with user goals.">
-                                    Team Leadership
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Stakeholder Management"
-                                        data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">
-                                    Stakeholder Management
-                                </span>
+                                <span class="tag hover-preview" data-title="Enterprise UX" data-desc="Designing scalable, efficient experiences for complex enterprise systems.">Enterprise UX</span>
+                                <span class="tag hover-preview" data-title="Design Systems" data-desc="Creating consistent, reusable design libraries for large-scale teams.">Design Systems</span>
+                                <span class="tag hover-preview" data-title="Team Leadership" data-desc="Guiding designers and engineers to align creativity with user goals.">Team Leadership</span>
+                                <span class="tag hover-preview" data-title="Stakeholder Management" data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">Stakeholder Management</span>
                             </div>
                         </div>
                     </div>
@@ -219,29 +186,10 @@
                                 Gained experience in IT operations and support within a banking environment. 
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview"
-                                        data-title="IT Operations"
-                                        data-desc="Managing and optimizing IT infrastructure, deployment, and maintenance processes.">
-                                    IT Operations
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="DevOps"
-                                        data-desc="Bridging development and operations through automation, CI/CD, and monitoring.">
-                                    DevOps
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="Networking"
-                                        data-desc="Designing and maintaining secure and efficient network architectures.">
-                                    Networking
-                                </span>
-
-                                <span class="tag hover-preview"
-                                        data-title="System Design"
-                                        data-desc="Structuring scalable systems and architectures to meet performance and reliability goals.">
-                                    System Design
-                                </span>
+                                <span class="tag hover-preview" data-title="IT Operations" data-desc="Managing and optimizing IT infrastructure, deployment, and maintenance processes.">IT Operations</span>
+                                <span class="tag hover-preview" data-title="DevOps" data-desc="Bridging development and operations through automation, CI/CD, and monitoring.">DevOps</span>
+                                <span class="tag hover-preview" data-title="Networking" data-desc="Designing and maintaining secure and efficient network architectures.">Networking</span>
+                                <span class="tag hover-preview" data-title="System Design" data-desc="Structuring scalable systems and architectures to meet performance and reliability goals.">System Design</span>
                             </div>
                         </div>
                     </div>
@@ -250,14 +198,15 @@
         </div>
     </section>
 
-        <!-- Work Section -->
+    <!-- Hands-On Work Section -->
     <section id="work" class="work-section">
         <div class="container">
             <h2 class="section-title">Hands-Ons</h2>
             <div class="portfolio-grid">
+                <!-- Project 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="media/datamate.png" alt="Finance Management Softwares">
+                        <img src="media/datamate.png" alt="Finance Management Softwares" loading="lazy">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Finance Management Softwares</h3>
@@ -270,10 +219,10 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Project 2 -->
                 <div class="portfolio-card">
-                  <div class="portfolio-image">
-                        <img src="media/ieeesbasiet.png" alt="Malayattor Library Webpage">
+                    <div class="portfolio-image">
+                        <img src="media/ieeesbasiet.png" alt="Malayattor Library Webpage" loading="lazy">
                     </div> 
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Cultural Library Webpage - Malayattor Library</h3>
@@ -289,34 +238,39 @@
         </div>
     </section>
 
+    <!-- Creatives CTA Section -->
+    <section id="creatives-cta" class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Creative Corner</h2>
+            <p class="cta-description">
+                Beyond design, I explore ideas and stories through writing. Discover my collection of blogs, articles, and personal thoughts.
+            </p>
+            <a href="creative.html" class="cta-button">Explore My Writings</a>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
-
             <p class="contact-description">
                 Find me online — I'm always open to collaborations or conversations that spark creativity!
             </p>
-
             <div class="contact-icons">
                 <a href="mailto:briancodee@gmail.com" class="contact-icon" title="Email">
                     <i data-lucide="mail"></i>
                 </a>
-
-                <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" class="contact-icon" title="WhatsApp">
+                <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" rel="noopener noreferrer" class="contact-icon" title="WhatsApp">
                     <i data-lucide="message-circle"></i>
                 </a>
-
-                <a href="https://github.com/brianroyee" target="_blank" class="contact-icon" title="GitHub">
+                <a href="https://github.com/brianroyee" target="_blank" rel="noopener noreferrer" class="contact-icon" title="GitHub">
                     <i data-lucide="github"></i>
                 </a>
-
-                <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" class="contact-icon" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" rel="noopener noreferrer" class="contact-icon" title="LinkedIn">
                     <i data-lucide="linkedin"></i>
                 </a>
-
-                <a href="https://www.kinder.com/in/en/kinder-joy" class="contact-icon" title="egg">
-                    <i data-lucide="egg"></i>
+                <a href="creative.html" class="contact-icon" title="Writings">
+                    <i data-lucide="pen"></i>
                 </a>
             </div>
         </div>
@@ -325,10 +279,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">Portfolio template venel DM cheyy Shuttumani!</p>
+            <p class="footer-text">Feel free to use this template for your own portfolio!</p>
         </div>
     </footer>
 
+    <!-- Main Script -->
     <script src="script.js"></script>
 </body>
 </html>

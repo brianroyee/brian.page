@@ -1,186 +1,170 @@
-// Portfolio Website JavaScript
+/**
+ * @file Main JavaScript file for the portfolio website.
+ * @description Handles preloader, navigation, animations, and other interactive elements.
+ */
 
-// Preloader functionality - runs immediately
-(function() {
+/**
+ * Manages the preloader display and fade-out effect.
+ * Ensures the preloader is shown for a minimum duration.
+ */
+function handlePreloader() {
     const preloader = document.querySelector('.preloader');
-    
-    if (preloader) {
-        // Minimum display time for preloader (in milliseconds)
-        const minDisplayTime = 2000; // 2 seconds
-        const startTime = Date.now();
-        
-        function hidePreloader() {
-            const elapsedTime = Date.now() - startTime;
-            const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
-            
-            setTimeout(function() {
-                preloader.classList.add('fade-out');
-                
-                // Remove preloader from DOM after fade out
-                setTimeout(function() {
-                    if (preloader.parentNode) {
-                        preloader.remove();
-                    }
-                }, 500);
-            }, remainingTime);
-        }
-        
-        // Try multiple methods to ensure preloader hides
-        if (document.readyState === 'complete') {
-            hidePreloader();
-        } else {
-            window.addEventListener('load', hidePreloader);
-            // Fallback: hide after max 4 seconds regardless
-            setTimeout(hidePreloader, 4000);
-        }
+    if (!preloader) return;
+
+    // Minimum display time for the preloader (in milliseconds)
+    const minDisplayTime = 2000;
+    const startTime = Date.now();
+
+    function hidePreloader() {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+
+        setTimeout(() => {
+            preloader.classList.add('fade-out');
+            preloader.addEventListener('transitionend', () => {
+                preloader.remove();
+            });
+        }, remainingTime);
     }
-})();
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all interactions
-    initMobileMenu();
-    initSmoothScrolling();
-    initScrollAnimations();
-    initCardInteractions();
-    initLucideIcons();
-    initHoverPreviews();
-    initPhotoCarousel();
-});
+    // Hide preloader when the window is fully loaded
+    window.addEventListener('load', hidePreloader);
 
-// Mobile menu toggle
+    // Fallback to hide preloader after a maximum time
+    setTimeout(hidePreloader, 4000);
+}
+
+/**
+ * Initializes the mobile menu toggle functionality.
+ * Handles opening, closing, and outside clicks.
+ */
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-link');
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
+    if (!menuToggle || !navLinks) return;
+
+    const links = navLinks.querySelectorAll('.nav-link');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
         });
-        
-        // Close menu when clicking on a link
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-    }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
 }
 
-// Smooth scrolling for navigation links
+/**
+ * Sets up smooth scrolling for anchor links.
+ */
 function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const navHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href;
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const navHeight = document.querySelector('.nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 }
 
-// Scroll animations for sections
+/**
+ * Initializes Intersection Observer to animate sections on scroll.
+ */
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver((entries) => {
+
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                obs.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
-    // Observe sections
-    const sections = document.querySelectorAll('.work-section, .about-section, .contact-section');
-    sections.forEach(section => {
+
+    document.querySelectorAll('.work-section, .about-section, .contact-section, .experience-section').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(section);
     });
 }
 
-// Enhanced card interactions
+/**
+ * Adds a subtle 3D tilt effect to portfolio cards on mousemove.
+ * Note: This can be performance-intensive. It's disabled on touch devices.
+ */
 function initCardInteractions() {
-    const cards = document.querySelectorAll('.portfolio-card');
-    
-    cards.forEach(card => {
+    if ('ontouchstart' in window) return; // Disable on touch devices
+
+    document.querySelectorAll('.portfolio-card').forEach(card => {
         card.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
             const rotateX = (y - centerY) / 20;
             const rotateY = (centerX - x) / 20;
-            
-            this.style.transform = `translateY(-8px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            this.style.transform = `translateY(-8px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
-        
+
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            this.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
         });
     });
 }
 
-// Initialize Lucide icons
+
+/**
+ * Renders Lucide icons and hides any contact icons without a valid link.
+ */
 function initLucideIcons() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
-
-    // Auto-hide empty contact icons
-    const icons = document.querySelectorAll('.contact-icon');
-    icons.forEach(icon => {
-        const href = icon.getAttribute('href');
-        if (!href || href.trim() === '' || href === '#') {
-            icon.style.animation = 'fadeOutIcon 0.5s forwards';
-            setTimeout(() => icon.remove(), 500);
-        }
-    });
 }
 
-// Hover preview functionality
+/**
+ * Creates and manages hover-to-preview boxes for tags.
+ */
 function initHoverPreviews() {
     document.querySelectorAll(".hover-preview").forEach(el => {
         const title = el.dataset.title || "";
-        const img = el.dataset.img || "";
         const desc = el.dataset.desc || "";
 
-        if (title || img || desc) {
+        if (title || desc) {
             const box = document.createElement("div");
             box.classList.add("preview-box");
             box.innerHTML = `
-                ${img ? `<img src="${img}" alt="${title} preview">` : ""}
                 ${title ? `<strong>${title}</strong>` : ""}
                 ${desc ? `<p>${desc}</p>` : ""}
             `;
@@ -194,17 +178,16 @@ function initHoverPreviews() {
             el.addEventListener("mousemove", e => {
                 const offsetX = 20;
                 const offsetY = 20;
-
                 let x = e.clientX + offsetX;
                 let y = e.clientY + offsetY;
 
-                const boxWidth = 260;
-                const boxHeight = 200;
+                const boxWidth = 240;
                 const screenWidth = window.innerWidth;
-                const screenHeight = window.innerHeight;
-
-                if (x + boxWidth > screenWidth - 16) x = screenWidth - boxWidth - 16;
-                if (y + boxHeight > screenHeight - 16) y = screenHeight - boxHeight - 16;
+                
+                // Adjust position to prevent going off-screen
+                if (x + boxWidth > screenWidth - 16) {
+                    x = e.clientX - boxWidth - offsetX;
+                }
 
                 box.style.left = `${x}px`;
                 box.style.top = `${y}px`;
@@ -218,50 +201,59 @@ function initHoverPreviews() {
     });
 }
 
-// Utility function for debouncing
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Add scroll-based navigation background change
-window.addEventListener('scroll', debounce(() => {
-    const nav = document.querySelector('.nav');
-    const scrolled = window.scrollY > 50;
-    
-    if (scrolled) {
-        nav.style.backgroundColor = 'rgba(248, 249, 250, 0.95)';
-        nav.style.backdropFilter = 'blur(12px)';
-    } else {
-        nav.style.backgroundColor = '#F8F9FA';
-        nav.style.backdropFilter = 'blur(8px)';
-    }
-}, 10));
-
-// Photo Carousel functionality
+/**
+ * Automatically cycles through images in the about section carousel.
+ */
 function initPhotoCarousel() {
-    const track = document.querySelector('.carousel-track');
-    if (!track) return;
-    
     const images = document.querySelectorAll('.carousel-image');
-    if (images.length === 0) return;
-    
+    if (images.length <= 1) return;
+
     let currentIndex = 0;
-    
+
     function showNextImage() {
         const nextIndex = (currentIndex + 1) % images.length;
-        
         images[currentIndex].classList.remove('active');
         images[nextIndex].classList.add('active');
-        
         currentIndex = nextIndex;
     }
+
     setInterval(showNextImage, 3500);
 }
+
+/**
+ * Changes the navigation bar's background on scroll.
+ */
+function handleNavScroll() {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+
+    let isScrolled = false;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50 && !isScrolled) {
+            nav.style.backgroundColor = 'rgba(248, 249, 250, 0.95)';
+            nav.style.backdropFilter = 'blur(12px)';
+            isScrolled = true;
+        } else if (window.scrollY <= 50 && isScrolled) {
+            nav.style.backgroundColor = '#F8F9FA';
+            nav.style.backdropFilter = 'blur(8px)';
+            isScrolled = false;
+        }
+    }, { passive: true }); // Use passive listener for better scroll performance
+}
+
+// --- Main Execution ---
+
+// Handle preloader immediately
+handlePreloader();
+
+// Initialize all other functions after the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileMenu();
+    initSmoothScrolling();
+    initScrollAnimations();
+    initCardInteractions();
+    initLucideIcons();
+    initHoverPreviews();
+    initPhotoCarousel();
+    handleNavScroll();
+});
