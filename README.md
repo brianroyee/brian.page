@@ -1,4 +1,7 @@
-Ente portfolio page anu,
-ellarum varanam!
+# Brian Roy Mathew - Portfolio
 
-Find this live at [brian-page.vercel.app](brian-page.vercel.app)
+This repository contains the source code for Brian Roy Mathew's portfolio website, showcasing his work as a UX Designer.
+
+## Acknowledgments
+
+*   Uses Lucide Icons: <https://lucide.dev/>
