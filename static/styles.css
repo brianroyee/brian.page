@@ -1079,3 +1079,53 @@ body {
     }
 }
 
+/* ================================
+   16. CUSTOM SVG CURSOR
+================================ */
+
+/* Apply the custom cursor to the entire page */
+html, body {
+    /*
+     * The 'url()' function points to your cursor image.
+     * The two numbers (16 16) are the X and Y coordinates of the "hotspot"
+     * of your cursor. This is the exact point that will trigger a click.
+     * (0 0) is the top-left corner. (16 16) is usually a good starting point
+     * for a 32x32px cursor, placing the hotspot in the center.
+     * You may need to adjust these values to match your SVG's design.
+     * The 'auto' at the end is a fallback to the default cursor if the image fails to load.
+    */
+    cursor: url('/static/media/cursor.png') 10 10, auto;
+}
+
+/* --- INTERACTIVE STATE --- */
+
+/* 
+ * When hovering over any interactive element (links, buttons, etc.),
+ * we can switch to a different cursor to provide feedback.
+ * Here, we'll use a different SVG (e.g., 'cursor-pointer.svg') or
+ * fall back to the browser's default pointer.
+*/
+a,
+button,
+.portfolio-card,
+.timeline-tags .tag,
+input[type="submit"] {
+    /* 
+     * Option A (Recommended): Use the default pointer for familiarity.
+     * Most users expect the "hand" pointer on clickable items.
+    */
+    cursor: release; /* Restores the default pointer cursor */
+
+    /* 
+     * Option B (More custom): Use a second, different SVG for the hover state.
+     * If you have another file, for example 'cursor-pointer.svg', you would use:
+     * cursor: url('/static/media/cursor-pointer.svg') 16 16, pointer;
+    */
+}
+
+/* Hide the custom cursor on smaller screens and restore the default for usability */
+@media (max-width: 768px) {
+    html, body, a, button, .portfolio-card, .timeline-tags .tag, input[type="submit"] {
+        cursor: auto; /* Restores the default system cursor */
+    }
+}
