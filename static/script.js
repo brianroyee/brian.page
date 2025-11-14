@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHoverPreviews();
     initPhotoCarousel();
     handleNavScroll();
+    initCommunityModal();
 
     // API Interaction Initializers
     loadCreativeWorks(); // Fetches data for the /creatives page.
@@ -329,3 +330,60 @@ function trackPageVisit() {
         });
 }
 
+/**
+ * Manages the community pop-up modal.
+ * Shows the modal on first visit and uses sessionStorage to prevent repeats.
+ */
+function initCommunityModal() {
+    const modalOverlay = document.getElementById('communityModal');
+    // Only run this code if the modal exists on the current page.
+    if (!modalOverlay) return;
+
+    const closeModalButton = modalOverlay.querySelector('.modal-close-button');
+
+    const openModal = () => {
+        modalOverlay.classList.remove('is-hidden');
+        // Prevent body from scrolling while modal is open
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        modalOverlay.classList.add('is-hidden');
+        // Restore body scrolling
+        document.body.style.overflow = 'auto';
+    };
+
+    // --- Modal Logic ---
+
+    // Check sessionStorage to see if the modal has already been shown in this session.
+    const hasModalBeenShown = sessionStorage.getItem('techiepediaModalShown');
+
+    if (!hasModalBeenShown) {
+        // If it hasn't been shown, wait 3 seconds then show it.
+        setTimeout(() => {
+            openModal();
+            // Set a flag in sessionStorage so it doesn't show again.
+            sessionStorage.setItem('techiepediaModalShown', 'true');
+        }, 5000); // 5-second delay
+    }
+
+    // --- Event Listeners ---
+
+    // Close modal when the close button is clicked.
+    closeModalButton.addEventListener('click', closeModal);
+
+    // Close modal when the user clicks on the dark overlay.
+    modalOverlay.addEventListener('click', (event) => {
+        // We check if the click was on the overlay itself, not on the content box.
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    // Close modal when the "Escape" key is pressed.
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modalOverlay.classList.contains('is-hidden')) {
+            closeModal();
+        }
+    });
+}

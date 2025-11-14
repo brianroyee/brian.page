@@ -1096,36 +1096,105 @@ html, body {
     */
     cursor: url('/static/media/cursor.png') 10 10, auto;
 }
-
-/* --- INTERACTIVE STATE --- */
-
-/* 
- * When hovering over any interactive element (links, buttons, etc.),
- * we can switch to a different cursor to provide feedback.
- * Here, we'll use a different SVG (e.g., 'cursor-pointer.svg') or
- * fall back to the browser's default pointer.
-*/
 a,
 button,
 .portfolio-card,
 .timeline-tags .tag,
 input[type="submit"] {
-    /* 
-     * Option A (Recommended): Use the default pointer for familiarity.
-     * Most users expect the "hand" pointer on clickable items.
-    */
-    cursor: release; /* Restores the default pointer cursor */
-
-    /* 
-     * Option B (More custom): Use a second, different SVG for the hover state.
-     * If you have another file, for example 'cursor-pointer.svg', you would use:
-     * cursor: url('/static/media/cursor-pointer.svg') 16 16, pointer;
-    */
+    cursor: auto; /* Restores the default pointer cursor */
 }
 
-/* Hide the custom cursor on smaller screens and restore the default for usability */
 @media (max-width: 768px) {
     html, body, a, button, .portfolio-card, .timeline-tags .tag, input[type="submit"] {
         cursor: auto; /* Restores the default system cursor */
+    }
+}
+
+/* ================================
+   17. COMMUNITY POP-UP MODAL
+================================ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.8); /* Dark, semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000; /* Ensure it's on top of everything */
+    
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    
+    /* Entrance animation */
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+/* --- Modal States --- */
+
+.modal-overlay.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Allow clicks to pass through when hidden */
+}
+
+.modal-overlay.is-hidden .modal-content {
+    transform: scale(0.95); /* Shrink slightly on exit */
+}
+
+/* --- Modal Elements --- */
+
+.modal-title {
+    margin-bottom: 1rem;
+}
+
+.modal-description {
+    font-size: 18px;
+    color: #565b66;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+    color: #111827;
+}
+
+/* Responsive adjustments for the modal */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 2rem;
+    }
+    .modal-description {
+        font-size: 16px;
     }
 }
