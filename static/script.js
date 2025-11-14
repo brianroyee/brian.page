@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initHoverPreviews();
     initPhotoCarousel();
     handleNavScroll();
-    initAnimatedCursor();
 
     // API Interaction Initializers
     loadCreativeWorks(); // Fetches data for the /creatives page.
@@ -330,67 +329,3 @@ function trackPageVisit() {
         });
 }
 
-/**
- * Initializes a custom animated cursor with a dot and a springy outline.
- */
-function initAnimatedCursor() {
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-
-    if (!dot || !outline) return;
-
-    // --- State variables ---
-    const cursor = {
-        x: 0,
-        y: 0,
-        outlineX: 0,
-        outlineY: 0,
-    };
-
-    let isAnimating = false;
-
-    // --- Event Listeners ---
-
-    window.addEventListener('mousemove', (e) => {
-        cursor.x = e.clientX;
-        cursor.y = e.clientY;
-
-        if (!isAnimating) {
-            // Start the animation loop when the mouse first moves
-            requestAnimationFrame(animate);
-            isAnimating = true;
-        }
-    });
-
-    // --- Animation Loop ---
-
-    const animate = () => {
-        // The dot moves instantly
-        dot.style.transform = `translate(${cursor.x - (dot.offsetWidth / 2)}px, ${cursor.y - (dot.offsetHeight / 2)}px)`;
-
-        // The outline "lerps" (linearly interpolates) to the cursor position.
-        // This creates the smooth, delayed "spring" effect.
-        const sensitivity = 0.15; // Lower value = more delay/floatiness
-        cursor.outlineX += (cursor.x - cursor.outlineX) * sensitivity;
-        cursor.outlineY += (cursor.y - cursor.outlineY) * sensitivity;
-
-        outline.style.transform = `translate(${cursor.outlineX - (outline.offsetWidth / 2)}px, ${cursor.outlineY - (outline.offsetHeight / 2)}px)`;
-
-        // Continue the animation loop
-        requestAnimationFrame(animate);
-    };
-
-    // --- Hover Effects ---
-
-    // Add a class to the body when hovering over specific elements
-    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .timeline-tags .tag');
-
-    interactiveElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-            document.body.classList.add('cursor-hovered');
-        });
-        el.addEventListener('mouseleave', () => {
-            document.body.classList.remove('cursor-hovered');
-        });
-    });
-}
