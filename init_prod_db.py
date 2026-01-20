@@ -1,8 +1,13 @@
+import os
 from flask import Flask
+from dotenv import load_dotenv
 from models import db
 
-# --- PASTE YOUR NEW ONRENDER CONNECTION STRING HERE ---
-DATABASE_URI = "postgresql://brian_page_db_user:52HSp0xLPGHMRz9RzPvnpg3WJ61rCkDk@dpg-d4b1t3q4d50c73cvkk5g-a.oregon-postgres.render.com/brian_page_db"
+# Load environment variables from .env file
+load_dotenv()
+
+# Get database URL from environment variable (same as config.py)
+DATABASE_URI = os.environ.get('DATABASE_URL')
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
@@ -11,13 +16,14 @@ db.init_app(app)
 
 def create_tables():
     with app.app_context():
-        print("Connecting to the OnRender database...")
+        print("Connecting to the database...")
         db.create_all()
-        print("Success! Database tables created in OnRender.")
-        print("You can now delete this script.")
+        print("Success! Database tables created.")
+        print("You can now delete this script if no longer needed.")
 
 if __name__ == "__main__":
-    if "PASTE_YOUR_ONRENDER" in DATABASE_URI:
-        print("\nERROR: Please open this script and paste your OnRender connection string.\n")
+    if not DATABASE_URI:
+        print("\nERROR: DATABASE_URL environment variable is not set.")
+        print("Please set it in your .env file or environment.\n")
     else:
         create_tables()

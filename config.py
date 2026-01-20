@@ -9,6 +9,10 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME') or 'admin'
     ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'password'
+    
+    # Session cookie security settings
+    SESSION_COOKIE_HTTPONLY = True  # Prevents JavaScript access to session cookies
+    SESSION_COOKIE_SAMESITE = 'Lax'  # Prevents CSRF attacks
 
     # --- THIS IS THE CRITICAL CHANGE ---
     # Get the production database URL from the environment variables.

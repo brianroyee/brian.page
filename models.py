@@ -1,7 +1,7 @@
 # models.py
 
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Initialize SQLAlchemy. This object will be used to interact with the database.
 db = SQLAlchemy()
@@ -15,8 +15,8 @@ class CreativeWork(db.Model):
     title = db.Column(db.String(150), nullable=False, comment="The title of the work.")
     url = db.Column(db.String(300), nullable=False, comment="The direct URL to the work.")
     description = db.Column(db.String(200), nullable=True, comment="An optional short description.")
-    date_created = db.Column(db.DateTime, default=datetime.utcnow, comment="Timestamp of when the entry was created.")
-    is_published = db.Column(db.Boolean, default=True, nullable=False, comment="Controls visibility on the public site.")
+    date_created = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), index=True, comment="Timestamp of when the entry was created.")
+    is_published = db.Column(db.Boolean, default=True, nullable=False, index=True, comment="Controls visibility on the public site.")
 
     def __repr__(self):
         """A developer-friendly representation of the object, useful for debugging."""
@@ -30,7 +30,7 @@ class Visitor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ip_address = db.Column(db.String(45), nullable=True, comment="Visitor's IP address.")
     user_agent = db.Column(db.String(200), nullable=True, comment="Visitor's browser/device information.")
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow, comment="The exact time of the visit.")
+    timestamp = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), index=True, comment="The exact time of the visit.")
 
     def __repr__(self):
         """A developer-friendly representation of the object."""

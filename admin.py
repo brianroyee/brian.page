@@ -1,6 +1,6 @@
 # admin.py
 
-from flask import request, redirect, url_for, session, render_template # <-- ADD render_template
+from flask import request, redirect, url_for, session, render_template, flash
 from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
 from functools import wraps
@@ -57,7 +57,7 @@ def init_admin(app):
                 session['admin_logged_in'] = True
                 return redirect(url_for('admin.index'))
             else:
-                # You might want to add an error message here in the future
+                flash('Invalid username or password', 'error')
                 return redirect(url_for('admin_routes.admin_login'))
         
         # Instead of a long string, we now render our beautiful HTML file

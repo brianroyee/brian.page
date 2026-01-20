@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Roy Mathew - UX Designer</title>
-    <meta name="description" content="Brian Roy Mathew - User Experience Designer specializing in clean, intuitive design solutions">
-    
+    <title>Brian Roy Mathew</title>
+    <meta name="description"
+        content="Brian Roy Mathew - CEO at Cenit Labs, connecting industries and building innovative solutions">
+
+    <!-- Critical Resource Preloading -->
+    <link rel="preload" as="image" href="{{ url_for('static', filename='media/bg.gif') }}">
+
     <!-- External Libraries -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    
+
 </head>
+
 <body>
 
     <!-- Custom Animated Cursor -->
@@ -65,7 +73,7 @@
         </div>
         <div class="hero-content">
             <h1 class="hero-title">Brian Roy Mathew</h1>
-            <p class="hero-subtitle">UX Designer | Product Designer</p>
+            <p class="hero-subtitle">I solve problems for a living!</p>
         </div>
     </section>
 
@@ -76,14 +84,14 @@
             <div class="about-wrapper">
                 <div class="about-content">
                     <p class="about-text">
-                        I'm a User Experience Designer passionate about creating meaningful, intuitive digital experiences. 
-                        With expertise in user research, interface design, and prototyping, I focus on solving complex problems 
-                        through human-centered design principles.
+                        I'm a problem solver who connects industries and builds solutions that matter.
+                        I focus on bridging gaps between technology, business, and people
+                        to create impactful innovations.
                     </p>
                     <p class="about-text">
-                        My approach combines strategic thinking with creative execution, ensuring that every design decision 
-                        is backed by user insights and business objectives. I believe great design is invisible: seamless, 
-                        efficient, and delightful without drawing attention to itself.
+                        My approach combines strategic thinking with hands-on execution. With a background spanning
+                        UX design, IT operations, and product development, I bring a unique perspective to building
+                        solutions that are both technically sound and user-centered.
                     </p>
                     <div class="skills">
                         <h3 class="skills-title">Skills & Expertise</h3>
@@ -123,10 +131,14 @@
                 <div class="about-carousel">
                     <div class="carousel-container">
                         <div class="carousel-track">
-                            <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Photo 1" class="carousel-image active" loading="lazy">
-                            <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Photo 2" class="carousel-image" loading="lazy">
-                            <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Photo 3" class="carousel-image" loading="lazy">
-                            <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Photo 4" class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Photo 1"
+                                class="carousel-image active" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Photo 2"
+                                class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Photo 3"
+                                class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Photo 4"
+                                class="carousel-image" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -138,7 +150,7 @@
     <section id="experience" class="experience-section">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            
+
             <!-- Education -->
             <div class="experience-category">
                 <h3 class="category-title">Education</h3>
@@ -146,16 +158,24 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2023 - Present</div>
                         <div class="timeline-content">
-                            <h4 class="timeline-title">Bachelor of Technology, Electrical and Electronics Engineering</h4>
+                            <h4 class="timeline-title">Bachelor of Technology, Electrical and Electronics Engineering
+                            </h4>
                             <p class="timeline-subtitle">ASIET, Kalady</p>
                             <p class="timeline-description">
                                 Currently pursuing a B.Tech degree with a focus on integrating technology and design.
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview" data-title="Electrical Designs" data-desc="Designing and analyzing real-world electrical schematics and PCB layouts.">Electrical Designs</span>
-                                <span class="tag hover-preview" data-title="Signal Processing" data-desc="Filtering, transforming, and interpreting analog/digital signals for communication and sensors.">Signal Processing</span>
-                                <span class="tag hover-preview" data-title="Programming" data-desc="Building embedded and software systems using C, Python, and hardware interfacing.">Programming</span>
-                                <span class="tag hover-preview" data-title="Control Systems" data-desc="Designing feedback and automation systems for robotics and industrial control.">Control Systems</span>
+                                <span class="tag hover-preview" data-title="Electrical Designs"
+                                    data-desc="Designing and analyzing real-world electrical schematics and PCB layouts.">Electrical
+                                    Designs</span>
+                                <span class="tag hover-preview" data-title="Signal Processing"
+                                    data-desc="Filtering, transforming, and interpreting analog/digital signals for communication and sensors.">Signal
+                                    Processing</span>
+                                <span class="tag hover-preview" data-title="Programming"
+                                    data-desc="Building embedded and software systems using C, Python, and hardware interfacing.">Programming</span>
+                                <span class="tag hover-preview" data-title="Control Systems"
+                                    data-desc="Designing feedback and automation systems for robotics and industrial control.">Control
+                                    Systems</span>
                             </div>
                         </div>
                     </div>
@@ -167,35 +187,75 @@
                 <h3 class="category-title">Professional Experience</h3>
                 <div class="experience-timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">2025 - Present</div>
+                        <div class="timeline-date">2026 - Present</div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Chief Executive Officer</h4>
+                            <p class="timeline-subtitle">Cenit Labs</p>
+                            <p class="timeline-description">
+                                Connecting industries and building innovative solutions. Leading a team focused on
+                                bridging gaps between technology, business, and people to create impactful products.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag hover-preview" data-title="Strategic Leadership"
+                                    data-desc="Driving company vision, strategy, and growth initiatives.">Strategic
+                                    Leadership</span>
+                                <span class="tag hover-preview" data-title="Product Development"
+                                    data-desc="Overseeing end-to-end product development from ideation to launch.">Product
+                                    Development</span>
+                                <span class="tag hover-preview" data-title="Industry Partnerships"
+                                    data-desc="Building strategic partnerships across diverse industries.">Industry
+                                    Partnerships</span>
+                                <span class="tag hover-preview" data-title="Innovation"
+                                    data-desc="Fostering a culture of innovation and problem-solving.">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">August 2025 - January 2026</div>
                         <div class="timeline-content">
                             <h4 class="timeline-title">UX Designer</h4>
                             <p class="timeline-subtitle">Datamate InfoSolutions Ltd.</p>
                             <p class="timeline-description">
-                                UX designer for enterprise SaaS products, managing design systems. Drove user-centered redesign initiatives for increased user satisfaction.
+                                UX designer for enterprise SaaS products, managing design systems. Drove user-centered
+                                redesign initiatives for increased user satisfaction.
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview" data-title="Enterprise UX" data-desc="Designing scalable, efficient experiences for complex enterprise systems.">Enterprise UX</span>
-                                <span class="tag hover-preview" data-title="Design Systems" data-desc="Creating consistent, reusable design libraries for large-scale teams.">Design Systems</span>
-                                <span class="tag hover-preview" data-title="Team Leadership" data-desc="Guiding designers and engineers to align creativity with user goals.">Team Leadership</span>
-                                <span class="tag hover-preview" data-title="Stakeholder Management" data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">Stakeholder Management</span>
+                                <span class="tag hover-preview" data-title="Enterprise UX"
+                                    data-desc="Designing scalable, efficient experiences for complex enterprise systems.">Enterprise
+                                    UX</span>
+                                <span class="tag hover-preview" data-title="Design Systems"
+                                    data-desc="Creating consistent, reusable design libraries for large-scale teams.">Design
+                                    Systems</span>
+                                <span class="tag hover-preview" data-title="Team Leadership"
+                                    data-desc="Guiding designers and engineers to align creativity with user goals.">Team
+                                    Leadership</span>
+                                <span class="tag hover-preview" data-title="Stakeholder Management"
+                                    data-desc="Collaborating with business, tech, and design stakeholders to ensure success.">Stakeholder
+                                    Management</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-item">
-                        <div class="timeline-date">2025 - 2025</div>
+                        <div class="timeline-date">June 2025 - July 2025</div>
                         <div class="timeline-content">
                             <h4 class="timeline-title">Intern - IT</h4>
                             <p class="timeline-subtitle">ESAF Small Finance Bank</p>
                             <p class="timeline-description">
-                                Gained experience in IT operations and support within a banking environment. 
+                                Gained experience in IT operations and support within a banking environment.
                             </p>
                             <div class="timeline-tags">
-                                <span class="tag hover-preview" data-title="IT Operations" data-desc="Managing and optimizing IT infrastructure, deployment, and maintenance processes.">IT Operations</span>
-                                <span class="tag hover-preview" data-title="DevOps" data-desc="Bridging development and operations through automation, CI/CD, and monitoring.">DevOps</span>
-                                <span class="tag hover-preview" data-title="Networking" data-desc="Designing and maintaining secure and efficient network architectures.">Networking</span>
-                                <span class="tag hover-preview" data-title="System Design" data-desc="Structuring scalable systems and architectures to meet performance and reliability goals.">System Design</span>
+                                <span class="tag hover-preview" data-title="IT Operations"
+                                    data-desc="Managing and optimizing IT infrastructure, deployment, and maintenance processes.">IT
+                                    Operations</span>
+                                <span class="tag hover-preview" data-title="DevOps"
+                                    data-desc="Bridging development and operations through automation, CI/CD, and monitoring.">DevOps</span>
+                                <span class="tag hover-preview" data-title="Networking"
+                                    data-desc="Designing and maintaining secure and efficient network architectures.">Networking</span>
+                                <span class="tag hover-preview" data-title="System Design"
+                                    data-desc="Structuring scalable systems and architectures to meet performance and reliability goals.">System
+                                    Design</span>
                             </div>
                         </div>
                     </div>
@@ -212,11 +272,13 @@
                 <!-- Project 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="{{ url_for('static', filename='media/datamate.png') }}" alt="Finance Management Softwares" loading="lazy">
+                        <img src="{{ url_for('static', filename='media/datamate.png') }}"
+                            alt="Finance Management Softwares" loading="lazy">
                     </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Finance Management Softwares</h3>
-                        <p class="portfolio-description">Contributed during work period at Datamate Infosolutions Ltd.</p>
+                        <p class="portfolio-description">Contributed during work period at Datamate Infosolutions Ltd.
+                        </p>
                         <div class="portfolio-tags">
                             <span class="tag">UX Research</span>
                             <span class="tag">Solution Architecture</span>
@@ -228,11 +290,13 @@
                 <!-- Project 2 -->
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="{{ url_for('static', filename='media/ieeesbasiet.png') }}" alt="Malayattor Library Webpage" loading="lazy">
-                    </div> 
+                        <img src="{{ url_for('static', filename='media/ieeesbasiet.png') }}"
+                            alt="Malayattor Library Webpage" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <h3 class="portfolio-title">Cultural Library Webpage - Malayattor Library</h3>
-                        <p class="portfolio-description">Contributed in designing workflows and reworking on critical features</p>
+                        <p class="portfolio-description">Contributed in designing workflows and reworking on critical
+                            features</p>
                         <div class="portfolio-tags">
                             <span class="tag">UI Design</span>
                             <span class="tag">Dashboard Design</span>
@@ -249,7 +313,8 @@
         <div class="container">
             <h2 class="section-title">Creative Corner</h2>
             <p class="cta-description">
-                Beyond design, I explore ideas and stories through writing. Discover my collection of blogs, articles, and personal thoughts.
+                Beyond design, I explore ideas and stories through writing. Discover my collection of blogs, articles,
+                and personal thoughts.
             </p>
             <a href="{{ url_for('creatives') }}" class="cta-button">Explore My Writings</a>
         </div>
@@ -266,33 +331,40 @@
                 <a href="mailto:briancodee@gmail.com" class="contact-icon" title="Email">
                     <i data-lucide="mail"></i>
                 </a>
-                <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" rel="noopener noreferrer" class="contact-icon" title="WhatsApp">
+                <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank" rel="noopener noreferrer"
+                    class="contact-icon" title="WhatsApp">
                     <i data-lucide="message-circle"></i>
                 </a>
-                <a href="https://github.com/brianroyee" target="_blank" rel="noopener noreferrer" class="contact-icon" title="GitHub">
+                <a href="https://github.com/brianroyee" target="_blank" rel="noopener noreferrer" class="contact-icon"
+                    title="GitHub">
                     <i data-lucide="github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" rel="noopener noreferrer" class="contact-icon" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/brianroymathew/" target="_blank" rel="noopener noreferrer"
+                    class="contact-icon" title="LinkedIn">
                     <i data-lucide="linkedin"></i>
                 </a>
-                <a href="https://chat.whatsapp.com/L22QvxKLTBT6Ncv2CxIzUK" target="_blank" rel="noopener noreferrer" class="contact-icon" title="Techiepedia Community">
+                <a href="https://chat.whatsapp.com/L22QvxKLTBT6Ncv2CxIzUK" target="_blank" rel="noopener noreferrer"
+                    class="contact-icon" title="Techiepedia Community">
                     <i data-lucide="users"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    
+
     <!-- Techiepedia Community Modal -->
     <div id="communityModal" class="modal-overlay is-hidden">
         <div class="modal-content">
             <button class="modal-close-button" aria-label="Close modal">&times;</button>
             <h2 class="section-title modal-title">Join Our Community!</h2>
             <p class="modal-description">
-                I'm building a community for tech enthusiasts called <strong style="color: #5b2160;">Techiepedia</strong>. 
-                It's a place to learn, share ideas, and grow together. <br> Whether you're a beginner or an expert, you're welcome!
+                I'm building a community for tech enthusiasts called <strong
+                    style="color: #5b2160;">Techiepedia</strong>.
+                It's a place to learn, share ideas, and grow together. <br> Whether you're a beginner or an expert,
+                you're welcome!
             </p>
-            <a href="https://chat.whatsapp.com/L22QvxKLTBT6Ncv2CxIzUK" target="_blank" rel="noopener noreferrer" class="cta-button">
+            <a href="https://chat.whatsapp.com/L22QvxKLTBT6Ncv2CxIzUK" target="_blank" rel="noopener noreferrer"
+                class="cta-button">
                 Join the Fam!
             </a>
         </div>
@@ -306,6 +378,7 @@
     </footer>
 
     <!-- Main Script -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
+
 </html>

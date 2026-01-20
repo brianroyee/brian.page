@@ -12,5 +12,8 @@ __pycache__/
 # Database file
 portfolio.db
 
+# Database initialization script (may contain sensitive info)
+init_prod_db.py
+
 # Other common Python ignores
 .DS_Store
