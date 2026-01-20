@@ -1096,7 +1096,8 @@ body {
     }
 
     .hero-subtitle {
-        font-size: 16px;
+        font-size: 22px;
+        line-height: 1.4;
     }
 
     /* Timeline */
