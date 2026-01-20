@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brian Roy Mathew - Creatives</title>
     <meta name="description" content="A collection of writings, blogs, and creative projects by Brian Roy Mathew.">
-    
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.base_url }}">
+    <meta property="og:title" content="Brian Roy Mathew - Creatives">
+    <meta property="og:description"
+        content="A collection of writings, blogs, and creative projects by Brian Roy Mathew.">
+    <meta property="og:image" content="{{ url_for('static', filename='media/photo1.jpg', _external=True) }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.base_url }}">
+    <meta property="twitter:title" content="Brian Roy Mathew - Creatives">
+    <meta property="twitter:description"
+        content="A collection of writings, blogs, and creative projects by Brian Roy Mathew.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='media/photo1.jpg', _external=True) }}">
+
     <!-- External Libraries & Fonts -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
@@ -45,7 +65,7 @@
     <section class="creatives-section">
         <div class="container">
             <h2 class="section-title">Creatives</h2>
-            
+
             <!-- This div is the target for our JavaScript. It will be filled with data from the API. -->
             <div class="creative-list" id="creative-list">
                 <p style="text-align: center; color: #6B7280;">Loading creative works...</p>
@@ -64,4 +84,5 @@
     <!-- Main Script -->
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
+
 </html>

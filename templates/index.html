@@ -8,6 +8,22 @@
     <meta name="description"
         content="Brian Roy Mathew - CEO at Cenit Labs, connecting industries and building innovative solutions">
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.base_url }}">
+    <meta property="og:title" content="Brian Roy Mathew">
+    <meta property="og:description"
+        content="CEO at Cenit Labs. Connecting industries and building innovative solutions.">
+    <meta property="og:image" content="{{ url_for('static', filename='media/photo1.jpg', _external=True) }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.base_url }}">
+    <meta property="twitter:title" content="Brian Roy Mathew">
+    <meta property="twitter:description"
+        content="CEO at Cenit Labs. Connecting industries and building innovative solutions.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='media/photo1.jpg', _external=True) }}">
+
     <!-- Critical Resource Preloading -->
     <link rel="preload" as="image" href="{{ url_for('static', filename='media/bg.gif') }}">
 
