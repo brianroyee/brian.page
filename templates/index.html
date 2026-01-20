@@ -94,37 +94,32 @@
                         solutions that are both technically sound and user-centered.
                     </p>
                     <div class="skills">
-                        <h3 class="skills-title">Skills & Expertise</h3>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h4 class="skill-category-title">Design</h4>
-                                <ul class="skill-list">
-                                    <li class="skill-item">User Research</li>
-                                    <li class="skill-item">Information Architecture</li>
-                                    <li class="skill-item">Wireframing</li>
-                                    <li class="skill-item">Prototyping</li>
-                                    <li class="skill-item">Visual Design</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4 class="skill-category-title">Tools</h4>
-                                <ul class="skill-list">
-                                    <li class="skill-item">Figma</li>
-                                    <li class="skill-item">Sketch</li>
-                                    <li class="skill-item">Moccuqs</li>
-                                    <li class="skill-item">Principle</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4 class="skill-category-title">Methods</h4>
-                                <ul class="skill-list">
-                                    <li class="skill-item">User Testing</li>
-                                    <li class="skill-item">A/B Testing</li>
-                                    <li class="skill-item">Design Thinking</li>
-                                    <li class="skill-item">Journey Mapping</li>
-                                    <li class="skill-item">Usability Testing</li>
-                                </ul>
-                            </div>
+                        <h3 class="skills-title">How can I help you:</h3>
+                        <p class="about-text" style="margin-bottom: 24px;">
+                            Whether you need to bridge the gap between tech and business, build scalable products, or
+                            streamline operations. I'm here to clear the path.
+                        </p>
+                        <div class="skills-grid" style="grid-template-columns: 1fr; gap: 24px;">
+                            <ul class="skill-list">
+                                <li class="skill-item"><strong>Strategic Consulting:</strong> Aligning technology with
+                                    business goals.</li>
+                                <li class="skill-item"><strong>Product Development:</strong> From ideation to
+                                    market-ready solutions.</li>
+                                <li class="skill-item"><strong>Industry Solutions:</strong> Connecting diverse sectors
+                                    with innovative tech.</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+                            <a href="mailto:briancodee@gmail.com" class="cta-button"
+                                style="display: inline-flex; align-items: center; gap: 10px;">
+                                <i data-lucide="mail" style="width: 18px; height: 18px;"></i> Email Me
+                            </a>
+                            <a href="https://wa.me/919995965621?text=Hey+Brian!" target="_blank"
+                                rel="noopener noreferrer" class="cta-button"
+                                style="background-color: #25D366; display: inline-flex; align-items: center; gap: 10px;">
+                                <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i> WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -138,6 +133,8 @@
                             <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Photo 3"
                                 class="carousel-image" loading="lazy">
                             <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Photo 4"
+                                class="carousel-image" loading="lazy">
+                            <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Photo 5"
                                 class="carousel-image" loading="lazy">
                         </div>
                     </div>
@@ -308,12 +305,68 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="work-section" style="background-color: #FFFFFF;">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="portfolio-grid">
+                <!-- GetHumbled -->
+                <a href="https://github.com/brianroyee/gethumbled" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-card" style="text-decoration: none;">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">GetHumbled 🔥</h3>
+                        <p class="portfolio-description">AI-powered web app that roasts LinkedIn profiles, giving users
+                            a reality check on corporate buzzwords.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Web App</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Wilx -->
+                <a href="https://github.com/brianroyee/Wilx" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-card" style="text-decoration: none;">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Wilx</h3>
+                        <p class="portfolio-description">GNU-like command line tools for Windows, bringing Unix power to
+                            the Windows ecosystem.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">CLI Tools</span>
+                            <span class="tag">Windows</span>
+                            <span class="tag">Open Source</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Brahma'25 Helpline -->
+                <a href="https://github.com/brianroyee/brahma25helpline" target="_blank" rel="noopener noreferrer"
+                    class="portfolio-card" style="text-decoration: none;">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Brahma'25 Telegram Bot</h3>
+                        <p class="portfolio-description">A Telegram bot built for the Brahma'25 event to provide
+                            information and support to attendees.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Telegram Bot</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Event Tech</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="https://github.com/brianroyee" target="_blank" rel="noopener noreferrer" class="cta-button">
+                    View All on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Creatives CTA Section -->
     <section id="creatives-cta" class="cta-section">
         <div class="container">
             <h2 class="section-title">Creative Corner</h2>
             <p class="cta-description">
-                Beyond design, I explore ideas and stories through writing. Discover my collection of blogs, articles,
+                Beyond tech, I explore ideas and stories through writing. Discover my collection of blogs, articles,
                 and personal thoughts.
             </p>
             <a href="{{ url_for('creatives') }}" class="cta-button">Explore My Writings</a>
@@ -322,10 +375,53 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <div class="container">
+        <!-- Slanting Carousel Background -->
+        <div class="slanting-carousel-bg">
+            <!-- Row 1 -->
+            <div class="carousel-track">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+            </div>
+            <!-- Row 2 (Reverse) -->
+            <div class="carousel-track reverse">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+            </div>
+            <!-- Row 3 -->
+            <div class="carousel-track">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+                <img src="{{ url_for('static', filename='media/photo3.jpg') }}" alt="Bg 3">
+                <img src="{{ url_for('static', filename='media/photo1.jpg') }}" alt="Bg 1">
+                <img src="{{ url_for('static', filename='media/photo5.png') }}" alt="Bg 5">
+                <img src="{{ url_for('static', filename='media/photo2.jpg') }}" alt="Bg 2">
+                <img src="{{ url_for('static', filename='media/photo4.png') }}" alt="Bg 4">
+            </div>
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
             <h2 class="section-title">Let's Connect</h2>
             <p class="contact-description">
-                Find me online — I'm always open to collaborations or conversations that spark creativity!
+                Find me online: I'm always open to collaborations or conversations that spark creativity!
             </p>
             <div class="contact-icons">
                 <a href="mailto:briancodee@gmail.com" class="contact-icon" title="Email">
@@ -373,7 +469,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">Template venel just Dm Cheyy Shuttumaniyee!</p>
+            <p class="footer-text">Nanni unde!!</p>
         </div>
     </footer>
 

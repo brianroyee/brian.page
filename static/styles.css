@@ -94,6 +94,7 @@ body {
     opacity: 0;
     animation: fadeInDown 0.6s ease forwards;
 }
+
 .loading-bar {
     width: 100%;
     height: 3px;
@@ -128,26 +129,60 @@ body {
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes loadProgress {
-    0% { width: 0%; }
-    50% { width: 70%; }
-    100% { width: 100%; }
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 @keyframes dots {
-    0%, 20% { content: ''; }
-    40% { content: '.'; }
-    60% { content: '..'; }
-    80%, 100% { content: '...'; }
+
+    0%,
+    20% {
+        content: '';
+    }
+
+    40% {
+        content: '.';
+    }
+
+    60% {
+        content: '..';
+    }
+
+    80%,
+    100% {
+        content: '...';
+    }
 }
 
 /* ================================
@@ -205,9 +240,11 @@ body {
 .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
     transform: rotate(45deg) translate(7px, 7px);
 }
+
 .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
     opacity: 0;
 }
+
 .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
@@ -309,14 +346,25 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 18px;
-    font-weight: 400;
-    color: #4B5563;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    font-style: italic;
+    color: #111827;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
 }
 
 @keyframes heroFadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ================================
@@ -336,13 +384,13 @@ body {
    6. WORK (PORTFOLIO) SECTION
 ================================ */
 .work-section {
-    padding: 96px 0;
+    padding: 48px 0;
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
 }
 
 .portfolio-card {
@@ -361,7 +409,7 @@ body {
 
 .portfolio-image {
     width: 100%;
-    height: 200px;
+    height: 160px;
     background: #E5E7EB;
     overflow: hidden;
 }
@@ -373,21 +421,21 @@ body {
 }
 
 .portfolio-content {
-    padding: 32px;
+    padding: 20px;
 }
 
 .portfolio-title {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 600;
     color: #111827;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .portfolio-description {
-    font-size: 16px;
+    font-size: 14px;
     color: #6B7280;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .portfolio-tags {
@@ -409,11 +457,11 @@ body {
    7. EXPERIENCE (TIMELINE) SECTION
 ================================ */
 .experience-section {
-    padding: 96px 0;
+    padding: 48px 0;
 }
 
 .experience-category {
-    margin-bottom: 80px;
+    margin-bottom: 48px;
 }
 
 .category-title {
@@ -436,7 +484,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, rgba(59,130,246,0) 0%, #3B82F6 12%, #3B82F6 88%, rgba(59,130,246,0) 100%);
+    background: linear-gradient(to bottom, rgba(59, 130, 246, 0) 0%, #3B82F6 12%, #3B82F6 88%, rgba(59, 130, 246, 0) 100%);
 }
 
 .timeline-item {
@@ -455,7 +503,7 @@ body {
     background-color: #3B82F6;
     border: 3px solid #F8F9FA;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
     z-index: 2;
 }
 
@@ -463,7 +511,7 @@ body {
     background-color: #FFFFFF;
     border-radius: 12px;
     padding: 32px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
     position: relative;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
@@ -480,7 +528,7 @@ body {
 
 .timeline-content:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-date {
@@ -539,7 +587,7 @@ body {
    8. ABOUT SECTION
 ================================ */
 .about-section {
-    padding: 96px 0;
+    padding: 48px 0;
     background-color: #FFFFFF;
 }
 
@@ -612,7 +660,7 @@ body {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px 64px; 
+    gap: 40px 64px;
     align-items: start;
 }
 
@@ -621,13 +669,13 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 2px 6px -1px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease-out;
 }
 
 .skill-category:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 12px -2px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.06);
 }
 
 .skill-category-title {
@@ -656,7 +704,7 @@ body {
 }
 
 .skill-item::before {
-    content: "•"; 
+    content: "•";
     color: #3B82F6;
     font-size: 18px;
     line-height: 1;
@@ -666,9 +714,60 @@ body {
    10. CONTACT SECTION
 ================================ */
 .contact-section {
-    padding: 96px 0;
+    padding: 48px 0;
     background-color: #F8F9FA;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Slanting Carousel */
+.slanting-carousel-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 0;
+    transform: rotate(-30deg);
+    opacity: 0.1;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll-loop 40s linear infinite;
+    /* Slower for background */
+    width: max-content;
+}
+
+.carousel-track.reverse {
+    animation-direction: reverse;
+}
+
+.carousel-track img {
+    height: 400px;
+    width: auto;
+    border-radius: 0;
+    box-shadow: none;
+    /* Shadow might look weird on sharp tiling images */
+    object-fit: cover;
+}
+
+@keyframes scroll-loop {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .contact-description {
@@ -719,8 +818,15 @@ body {
 }
 
 @keyframes fadeInIcon {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ================================
@@ -732,7 +838,7 @@ body {
 }
 
 .preview-box {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     transform: scale(0.95);
@@ -746,7 +852,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease, transform 0.25s ease;
-    z-index: 9999; 
+    z-index: 9999;
 }
 
 .preview-box img {
@@ -772,7 +878,7 @@ body {
    12. CREATIVES CTA SECTION
 ================================ */
 .cta-section {
-    padding: 96px 0;
+    padding: 48px 0;
     text-align: center;
     background-color: #FFFFFF;
 }
@@ -900,15 +1006,19 @@ body {
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .hero-content {
         padding: 30px 40px;
     }
+
     .hero-title {
         font-size: 56px;
     }
+
     .about-wrapper {
         grid-template-columns: 1fr 320px;
         gap: 48px;
@@ -916,10 +1026,12 @@ body {
 }
 
 @media (max-width: 768px) {
+
     /* Mobile Navigation */
     .mobile-menu-toggle {
         display: flex;
     }
+
     .nav-links {
         position: fixed;
         top: 64px;
@@ -935,22 +1047,27 @@ body {
         transition: max-height 0.3s ease, padding 0.3s ease;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
+
     .nav-links.active {
         max-height: 300px;
         padding: 16px 0;
     }
+
     .nav-link {
         padding: 16px 24px;
         width: 100%;
         font-size: 16px;
         border-bottom: 1px solid #E5E7EB;
     }
+
     .nav-link:last-child {
         border-bottom: none;
     }
+
     .nav-link::after {
         display: none;
     }
+
     .nav-link:hover {
         background-color: #F3F4F6;
     }
@@ -960,7 +1077,12 @@ body {
         font-size: 32px;
         margin-bottom: 32px;
     }
-    .work-section, .experience-section, .about-section, .contact-section, .cta-section {
+
+    .work-section,
+    .experience-section,
+    .about-section,
+    .contact-section,
+    .cta-section {
         padding: 64px 0;
     }
 
@@ -968,9 +1090,11 @@ body {
     .hero-content {
         padding: 24px 32px;
     }
+
     .hero-title {
         font-size: 40px;
     }
+
     .hero-subtitle {
         font-size: 16px;
     }
@@ -979,14 +1103,17 @@ body {
     .experience-timeline::before {
         left: 16px;
     }
+
     .timeline-item {
         padding-left: 56px;
     }
+
     .timeline-item::before {
         left: calc(16px - 6px);
         width: 12px;
         height: 12px;
     }
+
     .category-title {
         font-size: 24px;
         margin-bottom: 32px;
@@ -997,13 +1124,14 @@ body {
         grid-template-columns: 1fr;
         gap: 48px;
     }
+
     .about-carousel {
         position: relative;
         top: 0;
         max-width: 400px;
         margin: 0 auto;
     }
-    
+
     /* Skills */
     .skills-grid {
         grid-template-columns: 1fr;
@@ -1026,53 +1154,74 @@ body {
     .container {
         padding: 0 16px;
     }
+
     .nav-container {
         padding: 0 16px;
     }
+
     .nav-brand {
         font-size: 16px;
     }
-    .work-section, .experience-section, .about-section, .contact-section, .cta-section {
+
+    .work-section,
+    .experience-section,
+    .about-section,
+    .contact-section,
+    .cta-section {
         padding: 48px 0;
     }
+
     .section-title {
         font-size: 28px;
     }
+
     .hero-content {
         padding: 20px 24px;
         margin: 0 16px;
     }
+
     .hero-title {
         font-size: 32px;
     }
+
     .hero-subtitle {
         font-size: 14px;
     }
+
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
+
     .portfolio-content {
         padding: 24px;
     }
+
     .portfolio-title {
         font-size: 24px;
     }
+
     .timeline-title {
         font-size: 18px;
     }
-    .timeline-subtitle, .timeline-description {
+
+    .timeline-subtitle,
+    .timeline-description {
         font-size: 14px;
     }
+
     .contact-description {
         font-size: 16px;
     }
+
     .contact-icons {
         gap: 24px;
     }
+
     .contact-icon {
         width: 56px;
         height: 56px;
     }
+
     .contact-icon svg {
         width: 24px;
         height: 24px;
@@ -1084,7 +1233,8 @@ body {
 ================================ */
 
 /* Apply the custom cursor to the entire page */
-html, body {
+html,
+body {
     /*
      * The 'url()' function points to your cursor image.
      * The two numbers (16 16) are the X and Y coordinates of the "hotspot"
@@ -1096,17 +1246,29 @@ html, body {
     */
     cursor: url('/static/media/cursor.png') 10 10, auto;
 }
+
 a,
 button,
 .portfolio-card,
 .timeline-tags .tag,
-input[type="submit"] {
-    cursor: auto; /* Restores the default pointer cursor */
+input[type="submit"],
+.clickable,
+.nav-link,
+.cta-button {
+    cursor: url('/static/media/cursor.png') 10 10, pointer;
 }
 
 @media (max-width: 768px) {
-    html, body, a, button, .portfolio-card, .timeline-tags .tag, input[type="submit"] {
-        cursor: auto; /* Restores the default system cursor */
+
+    html,
+    body,
+    a,
+    button,
+    .portfolio-card,
+    .timeline-tags .tag,
+    input[type="submit"] {
+        cursor: auto;
+        /* Restores the default system cursor */
     }
 }
 
@@ -1120,12 +1282,14 @@ input[type="submit"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(17, 24, 39, 0.8); /* Dark, semi-transparent overlay */
+    background-color: rgba(17, 24, 39, 0.8);
+    /* Dark, semi-transparent overlay */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000; /* Ensure it's on top of everything */
-    
+    z-index: 10000;
+    /* Ensure it's on top of everything */
+
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1140,7 +1304,7 @@ input[type="submit"] {
     max-width: 500px;
     width: 90%;
     text-align: center;
-    
+
     /* Entrance animation */
     transform: scale(1);
     transition: transform 0.3s ease;
@@ -1151,11 +1315,13 @@ input[type="submit"] {
 .modal-overlay.is-hidden {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Allow clicks to pass through when hidden */
+    pointer-events: none;
+    /* Allow clicks to pass through when hidden */
 }
 
 .modal-overlay.is-hidden .modal-content {
-    transform: scale(0.95); /* Shrink slightly on exit */
+    transform: scale(0.95);
+    /* Shrink slightly on exit */
 }
 
 /* --- Modal Elements --- */
@@ -1194,6 +1360,7 @@ input[type="submit"] {
     .modal-content {
         padding: 2rem;
     }
+
     .modal-description {
         font-size: 16px;
     }
